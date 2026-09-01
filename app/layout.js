@@ -19,6 +19,10 @@ export const metadata = {
   title: "Black Car Service 360 | Sprinter Group Travel & Airport Rides",
   description:
     "Affordable group travel in late-model Mercedes Sprinters. Airport round trips, weddings, funerals, concerts, night clubs and cargo delivery. Local & long distance, 24/7.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Black Car Service 360 | Luxury Sprinter Group Travel",
     description:

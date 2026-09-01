@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 
 export function Footer() {
@@ -14,13 +15,13 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <div className="flex items-center">
-              <div className="rounded-2xl bg-white/95 px-3 py-1.5 shadow-md border border-white/60">
+              <Link href="/#home" className="rounded-2xl bg-white/95 px-3 py-1.5 shadow-md border border-white/60 inline-block">
                 <img
                   src="/logo.png"
                   alt="Black Car Service 360"
                   className="h-10 w-auto object-contain"
                 />
-              </div>
+              </Link>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-foreground/75">
               Affordable group travel in late-model Mercedes Sprinters. Local &amp; long distance,
@@ -67,30 +68,63 @@ export function Footer() {
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Services
+              Quick Links &amp; Services
             </h4>
-            <ul className="mt-5 space-y-3 text-sm text-ink-foreground/80">
+            <ul className="mt-5 space-y-2 text-sm text-ink-foreground/80">
+              <li>
+                <Link href="/about" className="transition-colors hover:text-primary font-medium text-ink-foreground">
+                  → About Us &amp; Standards
+                </Link>
+              </li>
+              <li>
+                <Link href="/fleet" className="transition-colors hover:text-primary font-medium text-ink-foreground">
+                  → The Executive Sprinter Fleet
+                </Link>
+              </li>
+              <li>
+                <Link href="/reviews" className="transition-colors hover:text-primary font-medium text-ink-foreground">
+                  → Client Reviews &amp; Stories (5.0 ★)
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="transition-colors hover:text-primary font-medium text-ink-foreground">
+                  → Contact &amp; Online Booking
+                </Link>
+              </li>
               {[
-                "Airport round trips",
-                "Weddings",
-                "Funerals",
-                "Stadium & concerts",
-                "Events & night clubs",
-                "Cargo delivery",
+                { name: "Airport round trips", href: "/services#airport" },
+                { name: "Weddings & Celebrations", href: "/services#weddings" },
+                { name: "Funerals & Memorials", href: "/services#funerals" },
+                { name: "Stadium & concerts", href: "/services#concerts" },
+                { name: "Events & night clubs", href: "/services#nightlife" },
+                { name: "Cargo delivery", href: "/services#cargo" },
               ].map((s) => (
-                <li key={s}>
-                  <a href="#services" className="transition-colors hover:text-primary">
-                    {s}
-                  </a>
+                <li key={s.name}>
+                  <Link href={s.href} className="transition-colors hover:text-primary">
+                    {s.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-ink-foreground/15 pt-6 text-xs text-ink-foreground/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Black Car Service 360. All rights reserved.</p>
-          <p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-ink-foreground/15 pt-6 text-xs text-ink-foreground/60 text-center sm:flex-row sm:items-center sm:justify-between">
+          <p className="sm:text-left">
+            © {new Date().getFullYear()} Black Car Service 360. All rights reserved.
+          </p>
+          <p className="sm:text-center">
+            Developed by{" "}
+            <a
+              href="https://topqualityresource.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-ink-foreground transition-colors hover:text-primary underline underline-offset-4 decoration-primary/50 hover:decoration-primary"
+            >
+              Top Quality Resource
+            </a>
+          </p>
+          <p className="sm:text-right">
             Owner: <span className="font-semibold text-ink-foreground">Nadir Nichols</span>
           </p>
         </div>

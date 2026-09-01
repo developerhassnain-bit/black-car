@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Phone, Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Fleet", href: "#fleet" },
-  { label: "Why Us", href: "#why" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Fleet", href: "/fleet" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Nav() {
@@ -37,7 +38,7 @@ export function Nav() {
         }`}
       >
         {/* Left: Logo */}
-        <a href="#home" className="flex shrink-0 items-center group">
+        <Link href="/#home" className="flex shrink-0 items-center group">
           <div
             className={`flex items-center rounded-2xl px-3.5 py-1.5 transition-all duration-300 ${
               scrolled
@@ -51,26 +52,26 @@ export function Nav() {
               className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-300"
             />
           </div>
-        </a>
+        </Link>
 
         {/* Center: Navigation Links with equal, balanced spacing */}
         <ul
-          className={`hidden items-center justify-center gap-1.5 lg:flex xl:gap-3 ${
+          className={`hidden flex-1 items-center justify-center gap-1.5 lg:flex xl:gap-2.5 ${
             scrolled ? "text-muted-foreground" : "text-white/90"
           }`}
         >
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                className={`rounded-full px-3.5 py-2 text-sm font-semibold transition-all duration-200 text-center ${
                   scrolled
                     ? "hover:text-primary hover:bg-muted/80"
                     : "hover:text-white hover:bg-white/15 drop-shadow-sm"
                 }`}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -107,13 +108,13 @@ export function Nav() {
         <ul className="px-3 space-y-1">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 onClick={() => setOpen(false)}
                 href={l.href}
                 className="block rounded-2xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
